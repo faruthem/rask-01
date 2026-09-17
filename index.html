@@ -16,13 +16,16 @@
     <div class="logo">
       <span class="logo-glitch">R.A.S.K.</span><span class="logo-sub">//01</span>
     </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
-    <nav id="navLinks">
-      <a href="#overview" onclick="closeNav()">Overview</a>
-      <a href="#specifications" onclick="closeNav()">Specs</a>
-      <a href="#defense" onclick="closeNav()">Shield & Defense</a>
-      <a href="#gallery" onclick="closeNav()">Gallery</a>
-      <a href="#preorder" class="btn-nav" onclick="closeNav()">Acquire Unit</a>
+
+    <!-- Botón hamburguesa visible solo en móvil -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menú">☰</button>
+
+    <nav id="navMenu">
+      <a href="#overview" class="nav-link">Overview</a>
+      <a href="#specifications" class="nav-link">Specs</a>
+      <a href="#defense" class="nav-link">Shield & Defense</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#preorder" class="btn-nav">Acquire Unit</a>
     </nav>
   </header>
 
@@ -124,7 +127,7 @@
     </div>
   </section>
 
-  <!-- Prototype & Visual Showcase -->
+<!-- Prototype & Visual Showcase -->
   <section class="gallery-section" id="gallery">
     <div class="section-title">
       <span>// DEVELOPMENT PIPELINE</span>
@@ -132,20 +135,34 @@
     </div>
 
     <div class="gallery-grid">
+      <!-- Boceto -->
       <div class="gallery-item">
         <img src="assets/sketch.jpg" alt="Initial Concept Sketch" onerror="this.src='https://placehold.co/400x500/161b22/00f0ff?text=Original+Draft+Sketch'" />
         <div class="caption">Phase 1: Conceptual Drafting & Schematics</div>
       </div>
+
+      <!-- Impresión 3D -->
       <div class="gallery-item">
         <img src="assets/print_3d.jpg" alt="3D Printed Prototype" onerror="this.src='https://placehold.co/400x500/161b22/00f0ff?text=3D+Printed+Scale+Model'" />
         <div class="caption">Phase 2: Scale Physical Prototyping</div>
       </div>
+
+      <!-- Video 1 -->
       <div class="gallery-item video-item">
         <video controls autoplay muted loop playsinline class="demo-vid">
           <source src="assets/demo_video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div class="caption">Phase 3: 3D Kinematics & 360° Inspection</div>
+      </div>
+
+      <!-- Video 2 (Nuevo) -->
+      <div class="gallery-item video-item">
+        <video controls autoplay muted loop playsinline class="demo-vid">
+          <source src="assets/demo_video_2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="caption">Phase 4: Operational Readiness & Visual Systems</div>
       </div>
     </div>
   </section>
@@ -199,16 +216,20 @@
     </div>
   </footer>
 
-  <script>
-    const toggle = document.getElementById('menuToggle');
-    const nav = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('nav-active');
-    });
-    function closeNav() {
-      nav.classList.remove('nav-active');
-    }
-  </script>
+<script>
+    const toggleBtn = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const links = document.querySelectorAll('#navMenu a');
 
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

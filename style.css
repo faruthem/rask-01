@@ -38,18 +38,101 @@ img, video {
   display: block;
 }
 
-/* Navbar */
+/* ===================================== */
+/* NAVBAR FIX (DESKTOP & MOBILE)        */
+/* ===================================== */
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 5%;
-  background: rgba(11, 14, 20, 0.95);
-  backdrop-filter: blur(10px);
+  padding: 14px 20px;
+  background: rgba(11, 14, 20, 0.96);
+  border-bottom: 1px solid var(--panel-border);
   position: sticky;
   top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid var(--panel-border);
+  z-index: 9999;
+  width: 100%;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+/* En PC se ve horizontal */
+#navMenu {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+#navMenu a {
+color: var(--text-muted);
+text-decoration: none;
+font-weight: 600;
+font-size: 15px;
+white-space: nowrap;
+}
+
+#navMenu a:hover {
+color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 22px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ===================================== */
+/* REGLAS PARA CELULARES (Menos de 768px)*/
+/* ===================================== */
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Muestra el icono de tres rayas */
+  }
+
+  #navMenu {
+  display: none; /* Oculta los enlaces apretados */
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #0d121a;
+  border-bottom: 2px solid var(--accent);
+  padding: 20px 0;
+  gap: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Se despliega al tocar el botón */
+  #navMenu.active {
+  display: flex;
+  }
+
+  #navMenu a {
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  padding: 8px 0;
+  }
+
+  .btn-nav {
+    display: inline-block;
+    width: auto;
+    margin: 0 auto;
+    padding: 8px 24px;
+  }
 }
 
 .logo {
