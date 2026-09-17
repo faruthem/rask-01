@@ -11,17 +11,18 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+<!-- Navigation -->
   <header class="navbar">
     <div class="logo">
       <span class="logo-glitch">R.A.S.K.</span><span class="logo-sub">//01</span>
     </div>
-    <nav>
-      <a href="#overview">Overview</a>
-      <a href="#specifications">Specs</a>
-      <a href="#defense">Shield & Defense</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#preorder" class="btn-nav">Acquire Unit</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+    <nav id="navLinks">
+      <a href="#overview" onclick="closeNav()">Overview</a>
+      <a href="#specifications" onclick="closeNav()">Specs</a>
+      <a href="#defense" onclick="closeNav()">Shield & Defense</a>
+      <a href="#gallery" onclick="closeNav()">Gallery</a>
+      <a href="#preorder" class="btn-nav" onclick="closeNav()">Acquire Unit</a>
     </nav>
   </header>
 
@@ -197,6 +198,17 @@
       <p class="mono">Hosted on GitHub Pages // faruthem</p>
     </div>
   </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+    });
+    function closeNav() {
+      nav.classList.remove('nav-active');
+    }
+  </script>
 
 </body>
 </html>
