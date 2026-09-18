@@ -716,3 +716,21 @@ footer p {
     max-width: 100%;
   }
 }
+
+.brand-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 38px; /* Ajuste para pantalla de teléfono */
+  }
+}
