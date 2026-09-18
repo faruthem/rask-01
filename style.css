@@ -734,3 +734,110 @@ footer p {
     height: 38px; /* Ajuste para pantalla de teléfono */
   }
 }
+
+/* ===================================== */
+/* IMPACT STATISTICS SECTION            */
+/* ===================================== */
+
+.stats-impact-section {
+  padding: 80px 5%;
+  background: #080b10;
+  border-top: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  padding: 28px;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.stat-card.critical {
+  border-left: 4px solid var(--danger);
+}
+
+.stat-card.highlight {
+  border-left: 4px solid var(--accent);
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.stat-card.highlight .stat-number {
+  color: var(--accent);
+}
+
+.stat-card.critical .stat-number {
+  color: var(--danger);
+}
+
+.stat-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--panel-border);
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+.stat-card.highlight .stat-badge {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(0, 240, 255, 0.08);
+}
+
+.stat-card.critical .stat-badge {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: rgba(255, 51, 68, 0.08);
+}
+
+.stat-card h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.stat-card p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    padding: 20px;
+  }
+}
